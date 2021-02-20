@@ -1,0 +1,78 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+#Declaring the 5 different vectors
+#V means vector
+V1 = np.array([10,15])
+V2 = np.array([21,-10])
+V3 = np.array([5,20])
+V4 = np.array([6,23])
+V5 = np.array([17,-20])
+
+print('Vector1 is:', V1)
+print('Vector2 is:', V2)
+print('Vector3 is:', V3)
+print('Vector4 is:', V4)
+print('Vector5 is:', V5)
+print('.'*20)
+
+#The Mathematical Operations
+#Addition and Subtraction
+print('Addition and Subtraction')
+Addition = np.add(V1, V2)
+Subtraction = np.subtract(Addition, V4)
+print('The Vector1 + Vector2 is equivalent to', Addition,
+'\nthe answer when it is subtracted to Vector4 is equivalent to', Subtraction)
+print('.'*20)
+
+#Multiplication and Division
+print("Multiplication and Division")
+Multiplication = np.multiply(V4, V3)
+Division = np.divide (Multiplication, V2)
+print('The Vector4 * Vector3 is equivalent to', Multiplication,
+'\ndividing it into Vector2 is equivalent to', Division)
+print('.'*20)
+
+#Squaring and Square Root
+print('The square root')
+Squaring = np.square(V2)
+Square_root = np.sqrt(V3)
+print('The square of Vector2 is', Squaring,
+'\nV2 is equivalent to the square root of',Square_root)
+print('.'*20)
+
+#Summation
+Summation = np.sum(V2)
+print('The summation')
+print('The Vector2 is equivalent to the summation of', Summation)
+print('.'*20)
+
+#Visualize the vectors and results of their operations
+plt.title('Visualization of Vectors')
+plt.xlim(-50,60)
+plt.ylim((-50,60))
+
+#Different Vectors
+plt.scatter(V1[0], V1[1], label='Vector1', c='indigo')
+plt.scatter(V2[0], V2[1], label='Vector2', c='yellow')
+plt.scatter(V3[0], V3[1], label='Vector3', c='pink')
+plt.scatter(V4[0], V4[1], label='Vector4', c='violet')
+plt.scatter(V5[0], V5[1], label='Vector5', c='orange')
+
+#Resultant Vector
+plt.quiver(0, 0, V1[0], V1[1], angles='xy', scale_units='xy', scale=1, color='red')
+plt.quiver(V1[0], V1[1], V2[0], V2[1], angles='xy', scale_units='xy', scale=1, color='blue')
+V6 = V1 + V2
+plt.quiver(0, 0, V6[0], V6[1], angles='xy', scale_units='xy', scale=1, color='green')
+
+R_mag = np.sqrt(np.sum(V1**2+V2**2))
+rise = V6[1]
+run = V6[0]
+slope = rise/run
+print("Slope:", slope)
+
+plt.grid()
+plt.legend()
+plt.show()
+#End
